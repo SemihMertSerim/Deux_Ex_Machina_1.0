@@ -42,7 +42,7 @@ def add_new_worksheet(spreadsheet_id, name_of_the_stock, row_count=200, column_c
         range=f"{name_of_the_stock}!A1",
         valueInputOption="USER_ENTERED",
         body={"values": [
-            [f"=GOOGLEFINANCE(\"{name_of_the_stock}\";\"close\" ;TODAY() - 200 ; TODAY()-2)"]]}).execute()
+            [f"=GOOGLEFINANCE(\"{name_of_the_stock}\";\"close\" ;TODAY() - 200 ; TODAY())"]]}).execute()
     time.sleep(0.2)
     added_sheet = response.get('replies')[0].get('addSheet').get('properties')
     new_worksheet_properties = [name_of_the_stock, added_sheet['sheetId']]
